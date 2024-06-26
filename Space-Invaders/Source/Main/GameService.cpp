@@ -4,6 +4,10 @@
 
 namespace Main {
 
+	using namespace Global;
+	
+	GameState GameService::current_state = GameState::BOOT; // Initializes GameState
+
 	// Constructor: Initializes pointers to null.
 	GameService::GameService() {
 		service_locator = nullptr; // Set service locator to null
@@ -14,6 +18,10 @@ namespace Main {
 	GameService::~GameService() {
 		destroy(); // Clean up and release resources
 	}
+
+	void GameService::setGameState(GameState new_state) { current_state = new_state; } // Get GameStatate
+
+	GameState GameService::getGameState() { return current_state; } //Set GameState
 
 	// Prepares the game service for use by obtaining the service locator instance and initializing services.
 	void GameService::ignite() {
@@ -49,6 +57,7 @@ namespace Main {
 		// Update Game Logic.
 		service_locator->update();
 	}
+
 
 
 
