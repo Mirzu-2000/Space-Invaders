@@ -111,4 +111,69 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\textures\bunker.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\circle_animation.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\explosion.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\frost_beam.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\instructions_button.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\laser_bullet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\menu_button.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\outscal_bomb.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\outscal_logo.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\play_button.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\player_ship.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\quit_button.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\rapid_fire.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\shield.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\space_invaders_bg.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\subzero.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\thunder_snake.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\torpedoe.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\tripple_laser.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\ufo.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\textures\zapper.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

@@ -30,6 +30,7 @@ namespace Enemy
 	EnemyController* EnemyService::spawnEnemy()
 	{
 		//creates and intis an enemy controller
+		printf("Hello");
 		enemy_controller = new EnemyController();
 		enemy_controller->initialize();
 

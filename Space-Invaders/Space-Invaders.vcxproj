@@ -166,6 +166,29 @@
     <ClInclude Include="Header\UI\MainMenu\MainMenuUIController.h" />
     <ClInclude Include="Header\UI\UIService.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\textures\bunker.png" />
+    <Image Include="assets\textures\circle_animation.png" />
+    <Image Include="assets\textures\explosion.png" />
+    <Image Include="assets\textures\frost_beam.png" />
+    <Image Include="assets\textures\instructions_button.png" />
+    <Image Include="assets\textures\laser_bullet.png" />
+    <Image Include="assets\textures\menu_button.png" />
+    <Image Include="assets\textures\outscal_bomb.png" />
+    <Image Include="assets\textures\outscal_logo.png" />
+    <Image Include="assets\textures\player_ship.png" />
+    <Image Include="assets\textures\play_button.png" />
+    <Image Include="assets\textures\quit_button.png" />
+    <Image Include="assets\textures\rapid_fire.png" />
+    <Image Include="assets\textures\shield.png" />
+    <Image Include="assets\textures\space_invaders_bg.png" />
+    <Image Include="assets\textures\subzero.png" />
+    <Image Include="assets\textures\thunder_snake.png" />
+    <Image Include="assets\textures\torpedoe.png" />
+    <Image Include="assets\textures\tripple_laser.png" />
+    <Image Include="assets\textures\ufo.png" />
+    <Image Include="assets\textures\zapper.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
