@@ -1,16 +1,25 @@
 #pragma once
+#include <vector>
 
 namespace Enemy
 {
 	class EnemyController;
+	enum class EnemyType;
 
 	class EnemyService
 	{
 	private:
+		const float spawn_interval = 2.0f;
 
-		void destroy(); // function to delete enemy
+		std::vector<EnemyController*> enemy_list;
+		float spawn_timer;
 
-		EnemyController* enemy_controller; 	// enemy controller ptr
+		EnemyType getRandomEnemyType();
+		EnemyController* createEnemy(EnemyType enemy_type);
+		
+		void updateSpawnTimer();
+		void processEnemySpawn();
+		void destroy();
 
 	public:
 		EnemyService();
@@ -20,7 +29,7 @@ namespace Enemy
 		void update();
 		void render();
 
-		EnemyController* spawnEnemy(); 		// Function to spawn enemy
-
+		EnemyController* spawnEnemy();
+		void destroyEnemy(EnemyController* enemy_controller);
 	};
 }

@@ -18,7 +18,7 @@ namespace Player {
         void processPlayerInput();
         void moveLeft();
         void moveRight();
-
+        
     public:
         PlayerController();
         ~PlayerController();
