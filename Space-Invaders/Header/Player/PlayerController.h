@@ -6,7 +6,6 @@
 namespace Player {
     
     enum class PlayerState;
-
     class PlayerView;
     class PlayerModel;
 
@@ -19,7 +18,7 @@ namespace Player {
         void processPlayerInput();
         void moveLeft();
         void moveRight();
-
+        
     public:
         PlayerController();
         ~PlayerController();

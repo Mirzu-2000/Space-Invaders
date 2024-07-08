@@ -1,11 +1,18 @@
 #include "../../Header/Global/ServiceLocator.h"
+#include "../../Header/Main/GameService.h"
 
-namespace Global {
+namespace Global 
+{
 
 	using namespace Graphic;
 	using namespace Time;
 	using namespace Event;
 	using namespace Player;
+	using namespace UI;
+	using namespace Enemy;
+	using namespace Main;
+	using namespace Gameplay;
+
 
 	// Constructor: Initializes the graphic_service pointer to null and creates services.
 	ServiceLocator::ServiceLocator() {
@@ -13,7 +20,9 @@ namespace Global {
 		event_service = nullptr; // Initialize event_service to null.
 		player_service = nullptr; //Initialize player_service to null.
 		time_service = nullptr;  //Initialize time_service to null.
-
+		ui_service = nullptr;    //Initialize ui_service to null
+		enemy_service = nullptr; //Initialize enemy_service to null
+		gameplay_service = nullptr; //Initialize gameplay_service to null
 
 		createServices(); // Call createServices to instantiate services
 	}
@@ -29,7 +38,9 @@ namespace Global {
 		event_service = new EventService();// Dynamically create a EventService instance
 		player_service = new PlayerService();// Dynamically create a PlayerService instance
 		time_service = new TimeService(); // Dynamically create a TimeService instance
-
+		ui_service = new UIService();    // Dynamically create a UIService instance
+		enemy_service = new EnemyService(); // Dynamically create a EnemyService instance
+		gameplay_service = new GameplayService();// Dynamically create a GameplayService instance
 	}
 
 	// Deletes allocated services to prevent memory leaks, specifically the graphic service.
@@ -38,6 +49,9 @@ namespace Global {
 		delete(event_service); // Delete the event_service instance
 		delete(player_service);  //Delete the player_service instance
 		delete(time_service);   //Delete the time_service instance
+		delete(ui_service);    //Delete the ui_service instance
+		delete(enemy_service); //Delete the enemy_service instance
+		delete(gameplay_service); //Delete the Gameplay_service instance
 	}
 
 	// Returns a pointer to ServiceLocator.
@@ -52,27 +66,56 @@ namespace Global {
 		event_service->initialize();// Initialize event service.
 		player_service->initialize();// Initialize player service.
 		time_service->initialize(); // Initialize time_service.
+		ui_service->initialize();  // Initialize ui_service.
+		enemy_service->initialize();// Initialize enemy_service.
+		gameplay_service->initialize(); // Initialize gameplay_service.
 
 	}
 
 	// Updates the state of the graphic service.
-	void ServiceLocator::update() {
+	void ServiceLocator::update() 
+	{
 		graphic_service->update();// Update graphic service
-		event_service->update();// Update event service.
-		player_service->update();// Update player service
 		time_service->update(); // Update time service'
+		event_service->update();// Update event service.
+		
+		if (GameService::getGameState() == GameState::GAMEPLAY)
+		{
+		
+			player_service->update();
+			enemy_service->update();
+			gameplay_service->update();
+			
+		}
+
+		ui_service->update();
+
 	}
 
-	// Renders using the graphic service.
-	void ServiceLocator::render() {
-		graphic_service->render(); // Render graphic service
-		player_service->render(); //Render Player service
+	void ServiceLocator::render()
+	{
+		graphic_service->render();
+		if (GameService::getGameState() == GameState::GAMEPLAY)
+		{
+			gameplay_service->render();
+			player_service->render();
+			enemy_service->render();
+			
+			
+		}
+
+		ui_service->render();
+
+
 	}
+
 
 	// Returns a pointer to the currently set graphic service.
 	GraphicService* ServiceLocator::getGraphicService() { return graphic_service; }
 	EventService* ServiceLocator::getEventService() { return event_service; }
 	PlayerService* ServiceLocator::getPlayerService() { return player_service; }
 	TimeService* ServiceLocator::getTimeService() { return time_service; }
-
+	UIService* ServiceLocator::getUIService() { return ui_service; }
+	EnemyService* ServiceLocator::getEnemyServices() { return enemy_service; }
+	GameplayService* ServiceLocator::getGameplayServices() { return gameplay_service; }
 }

@@ -3,6 +3,10 @@
 #include "../../Header/Event/EventService.h"
 #include "../../Header/Player/PlayerService.h"
 #include "../../Header/Time/TimeService.h"
+#include "../../Header/UI/UIService.h"
+#include "../../Header/Enemy/EnemyService.h"
+#include "../../Header/Gameplay/GameplayService.h"
+
 
 
 
@@ -23,6 +27,14 @@ namespace Global {
         Player::PlayerService* player_service;
         // - time_service: Handles graphics-related tasks.
         Time::TimeService* time_service;
+       //- ui_service: Handles graphics-related tasks.
+        UI::UIService* ui_service;
+        // - enemy_service: Handles graphics-related tasks.
+        Enemy::EnemyService* enemy_service;
+        // - gameplay_service: Handles graphics-related tasks.
+        Gameplay::GameplayService* gameplay_service;
+
+
 
         // Private Constructor and Destructor:
 
@@ -49,5 +61,9 @@ namespace Global {
         Graphic::GraphicService* getGraphicService();   // Retrieve the GraphicService instance.
         Player::PlayerService* getPlayerService();    // Retrieve the PlayerService instance.
         Time::TimeService* getTimeService();       //// Retrieve the TimeService instance.
+        UI::UIService* getUIService();           // Retrieve the UIService instance.
+        Enemy::EnemyService* getEnemyServices(); // Retrieve the EnemyService instance.
+        Gameplay::GameplayService* getGameplayServices(); // Retrieve the GameplayService instance.
+    
     };
 }
