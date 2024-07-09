@@ -6,6 +6,7 @@
 #include "../../Header/UI/UIService.h"
 #include "../../Header/Enemy/EnemyService.h"
 #include "../../Header/Gameplay/GameplayService.h"
+#include "../../Header/Elements/ElementService.h"
 
 
 
@@ -23,16 +24,18 @@ namespace Global {
         Event::EventService* event_service;
         // - graphic_service: Handles graphics-related tasks.
         Graphic::GraphicService* graphic_service;
-        // - player_service: Handles graphics-related tasks.
+        // - player_service: Handles player-related tasks.
         Player::PlayerService* player_service;
-        // - time_service: Handles graphics-related tasks.
+        // - time_service: Handles Delta time -related tasks.
         Time::TimeService* time_service;
-       //- ui_service: Handles graphics-related tasks.
+       //- ui_service: Handles user interface-related tasks.
         UI::UIService* ui_service;
-        // - enemy_service: Handles graphics-related tasks.
+        // - enemy_service: Handles enemy-related tasks.
         Enemy::EnemyService* enemy_service;
-        // - gameplay_service: Handles graphics-related tasks.
+        // - gameplay_service: Handles backgroung graphics-related tasks.
         Gameplay::GameplayService* gameplay_service;
+        // - element_service: Handles -related tasks.
+        Element::ElementService* element_service;
 
 
 
@@ -64,6 +67,6 @@ namespace Global {
         UI::UIService* getUIService();           // Retrieve the UIService instance.
         Enemy::EnemyService* getEnemyServices(); // Retrieve the EnemyService instance.
         Gameplay::GameplayService* getGameplayServices(); // Retrieve the GameplayService instance.
-    
+        Element::ElementService* getElemrntService();  // Retrieve the ElementService instance.
     };
 }
