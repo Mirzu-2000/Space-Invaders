@@ -3,6 +3,7 @@
 #include "../../Header/Global/ServiceLocator.h"
 #include "../../Header/Graphic/GraphicService.h"
 #include "../../Header/Event/EventService.h"
+#include "../../Header/Sound/SoundService.h"
 
 namespace UI
 {
@@ -12,6 +13,7 @@ namespace UI
         using namespace Main;
         using namespace Graphic;
         using namespace Event;
+        using namespace Sound;
 
 
         MainMenuUIController::MainMenuUIController() { game_window = nullptr; }
@@ -95,18 +97,39 @@ namespace UI
             quit_button_sprite.setPosition({ x_position, 700.f });
         }
 
+        //void MainMenuUIController::processButtonInteractions()
+        //{
+        //    sf::Vector2f mouse_position = sf::Vector2f(sf::Mouse::getPosition(*game_window));
+
+        //    if (clickedButton(&play_button_sprite, mouse_position))
+        //    {
+        //        GameService::setGameState(GameState::GAMEPLAY);
+        //    }
+
+        //    if (clickedButton(&instructions_button_sprite, mouse_position))
+        //    {
+        //        printf("Clicked Instruction Button \\n");
+        //    }
+
+        //    if (clickedButton(&quit_button_sprite, mouse_position))
+        //        game_window->close();
+        //}
+
+                        
         void MainMenuUIController::processButtonInteractions()
         {
             sf::Vector2f mouse_position = sf::Vector2f(sf::Mouse::getPosition(*game_window));
 
             if (clickedButton(&play_button_sprite, mouse_position))
             {
+                ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK); //play button sound
+                ServiceLocator::getInstance()->getSoundService()->playBackgroundMusic(); //play background music
                 GameService::setGameState(GameState::GAMEPLAY);
             }
 
             if (clickedButton(&instructions_button_sprite, mouse_position))
             {
-                printf("Clicked Instruction Button \\n");
+                printf("Clicked Instruction Button \n");
             }
 
             if (clickedButton(&quit_button_sprite, mouse_position))
