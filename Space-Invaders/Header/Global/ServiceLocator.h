@@ -7,6 +7,7 @@
 #include "../../Header/Enemy/EnemyService.h"
 #include "../../Header/Gameplay/GameplayService.h"
 #include "../../Header/Elements/ElementService.h"
+#include "../../Header/Sound/SoundService.h"
 
 
 
@@ -34,10 +35,10 @@ namespace Global {
         Enemy::EnemyService* enemy_service;
         // - gameplay_service: Handles backgroung graphics-related tasks.
         Gameplay::GameplayService* gameplay_service;
-        // - element_service: Handles -related tasks.
+        // - element_service: Handles Bunker-related tasks.
         Element::ElementService* element_service;
-
-
+        // - sound_service: Handles Bunker-related tasks.
+        Sound::SoundService* sound_service;
 
         // Private Constructor and Destructor:
 
@@ -68,5 +69,6 @@ namespace Global {
         Enemy::EnemyService* getEnemyServices(); // Retrieve the EnemyService instance.
         Gameplay::GameplayService* getGameplayServices(); // Retrieve the GameplayService instance.
         Element::ElementService* getElemrntService();  // Retrieve the ElementService instance.
+        Sound::SoundService* getSoundService(); //  Retrieve the SoundService instance.
     };
 }

@@ -13,6 +13,7 @@ namespace Global
 	using namespace Main;
 	using namespace Gameplay;
 	using namespace Element;
+	using namespace Sound;
 
 
 	// Constructor: Initializes the graphic_service pointer to null and creates services.
@@ -25,7 +26,10 @@ namespace Global
 		enemy_service = nullptr; //Initialize enemy_service to null
 		gameplay_service = nullptr; //Initialize gameplay_service to null
 		element_service = nullptr; // Initialize element_service to null
+		sound_service = nullptr; // Initialize sound_service to null
+
 		createServices(); // Call createServices to instantiate services
+
 	}
 
 	// Destructor: Cleans up resources by clearing all services.
@@ -43,6 +47,8 @@ namespace Global
 		enemy_service = new EnemyService(); // Dynamically create a EnemyService instance
 		gameplay_service = new GameplayService();// Dynamically create a GameplayService instance
 		element_service = new ElementService(); // Dynamically create a ElementService instance
+		sound_service = new SoundService(); //  Dynamically create a SoundService instance
+	
 	}
 
 	// Deletes allocated services to prevent memory leaks, specifically the graphic service.
@@ -55,6 +61,7 @@ namespace Global
 		delete(enemy_service); //Delete the enemy_service instance
 		delete(gameplay_service); //Delete the Gameplay_service instance
 		delete(element_service); //Delete the element_service instance
+		delete(sound_service); // Delete the sound_service instance
 	}
 
 	// Returns a pointer to ServiceLocator.
@@ -73,7 +80,7 @@ namespace Global
 		enemy_service->initialize();// Initialize enemy_service.
 		gameplay_service->initialize(); // Initialize gameplay_service.
 		element_service->initialize();  // Initialize element_service.
-
+		sound_service->initialize(); //  Initialize sound_service.
 	}
 
 	// Updates the state of the graphic service.
@@ -82,7 +89,7 @@ namespace Global
 		graphic_service->update();// Update graphic service
 		time_service->update(); // Update time service'
 		event_service->update();// Update event service.
-		
+		//sound_service->update();
 		if (GameService::getGameState() == GameState::GAMEPLAY)
 		{
 		
@@ -125,4 +132,5 @@ namespace Global
 	EnemyService* ServiceLocator::getEnemyServices() { return enemy_service; }
 	GameplayService* ServiceLocator::getGameplayServices() { return gameplay_service; }
 	ElementService* ServiceLocator::getElemrntService() { return element_service; }
+	SoundService* ServiceLocator::getSoundService() { return sound_service; }
 }
