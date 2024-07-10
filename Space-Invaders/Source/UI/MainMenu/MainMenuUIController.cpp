@@ -37,8 +37,7 @@ namespace UI
         void MainMenuUIController::scaleBackgroundImage()
         {
             /*
-            // Don't worry about the static_cast we will discuss it later. For now know that this function is
-            // just scaling our background image based on the size of the game window
+             scaling our background image based on the size of the game window
             */
             background_sprite.setScale(
                 static_cast<float>(game_window->getSize().x) / background_sprite.getTexture()->getSize().x,
@@ -96,26 +95,7 @@ namespace UI
             instructions_button_sprite.setPosition({ x_position, 500.f });
             quit_button_sprite.setPosition({ x_position, 700.f });
         }
-
-        //void MainMenuUIController::processButtonInteractions()
-        //{
-        //    sf::Vector2f mouse_position = sf::Vector2f(sf::Mouse::getPosition(*game_window));
-
-        //    if (clickedButton(&play_button_sprite, mouse_position))
-        //    {
-        //        GameService::setGameState(GameState::GAMEPLAY);
-        //    }
-
-        //    if (clickedButton(&instructions_button_sprite, mouse_position))
-        //    {
-        //        printf("Clicked Instruction Button \\n");
-        //    }
-
-        //    if (clickedButton(&quit_button_sprite, mouse_position))
-        //        game_window->close();
-        //}
-
-                        
+                 
         void MainMenuUIController::processButtonInteractions()
         {
             sf::Vector2f mouse_position = sf::Vector2f(sf::Mouse::getPosition(*game_window));

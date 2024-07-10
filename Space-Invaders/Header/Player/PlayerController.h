@@ -18,6 +18,8 @@ namespace Player {
         void processPlayerInput();
         void moveLeft();
         void moveRight();
+
+        void fireBullet();
         
     public:
         PlayerController();

@@ -3,12 +3,14 @@
 #include "../../Header/Global/ServiceLocator.h"
 #include "../../Header/Player/PlayerView.h"
 #include "../../Header/Player/PlayerModel.h"
+#include "../../Header/Bullet/BulletConfig.h"
 #include<algorithm>
 
 namespace Player {
 
 	using namespace Global;
 	using namespace Event;
+	using namespace Bullet;
 
 
 	PlayerController::PlayerController()
@@ -60,6 +62,12 @@ namespace Player {
 		{
 			moveRight();
 		}
+	
+		if (event_service->pressedLeftMouseButton()) 
+		{ 
+			fireBullet(); 
+		}
+	
 	}
 
 	void PlayerController::moveLeft()
@@ -79,5 +87,17 @@ namespace Player {
 		currentPosition.x = std::min(currentPosition.x, player_model->right_most_position.x);
 		player_model->setPlayerPosition(currentPosition);
 	}
+
+
+	void PlayerController::fireBullet()
+	{
+		Global::ServiceLocator::getInstance()->getBulletService()->spawnBullet(BulletType::LASER_BULLET,
+			player_model->getPlayerPosition() - player_model->barrel_position_offset, Bullet::MovementDirection::UP);
+	}
+
+
+
+
+
 
 }

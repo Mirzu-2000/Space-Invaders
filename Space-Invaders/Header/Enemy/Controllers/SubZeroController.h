@@ -13,6 +13,8 @@ namespace Enemy
             void move() override;
             void moveDown();
 
+            void fireBullet() override;
+
         public:
             SubzeroController(EnemyType type );
             ~SubzeroController();

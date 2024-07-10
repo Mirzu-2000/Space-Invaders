@@ -8,6 +8,7 @@
 #include "../../Header/Gameplay/GameplayService.h"
 #include "../../Header/Elements/ElementService.h"
 #include "../../Header/Sound/SoundService.h"
+#include "../../Header/Bullet/BulletService.h"
 
 
 
@@ -39,6 +40,8 @@ namespace Global {
         Element::ElementService* element_service;
         // - sound_service: Handles Bunker-related tasks.
         Sound::SoundService* sound_service;
+        //
+        Bullet::BulletService* bullet_service;
 
         // Private Constructor and Destructor:
 
@@ -70,5 +73,6 @@ namespace Global {
         Gameplay::GameplayService* getGameplayServices(); // Retrieve the GameplayService instance.
         Element::ElementService* getElemrntService();  // Retrieve the ElementService instance.
         Sound::SoundService* getSoundService(); //  Retrieve the SoundService instance.
+        Bullet::BulletService* getBulletService();
     };
 }
