@@ -8,6 +8,7 @@
 #include "../../Header/Enemy/Controllers/SubZeroController.h"
 
 
+
 namespace Enemy
 {
 	using namespace Global;
@@ -79,7 +80,7 @@ namespace Enemy
 		case::Enemy::EnemyType::ZAPPER:
 			return new ZapperController(Enemy::EnemyType::ZAPPER);
 
-			/*case::Enemy::EnemyType::THUNDER_SNAKE:
+		/*	case::Enemy::EnemyType::THUNDER_SNAKE:
 				return new ThunderSnakeController(Enemy::EnemyType::THUNDER_SNAKE);*/
 
 		case::Enemy::EnemyType::SUBZERO:
