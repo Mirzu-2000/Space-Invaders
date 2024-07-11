@@ -31,13 +31,15 @@ namespace Bullet
 				scaleImage();
 			}
 			break;
-		/*case::Bullet::BulletType::FROST_BULLET:
+
+		case::Bullet::BulletType::FROST_BULLET:
 			if (bullet_texture.loadFromFile(Config::frost_beam_texture_path))
 			{
 				bullet_sprite.setTexture(bullet_texture);
 				scaleImage();
 			}
-			break;*/
+			break;
+
 		case::Bullet::BulletType::TORPEDO:
 			if (bullet_texture.loadFromFile(Config::torpedoe_texture_path))
 			{

@@ -6,7 +6,7 @@ namespace Bullet
 	{
 		LASER_BULLET,
 		TORPEDO,
-		//FROST_BULLET,
+		FROST_BULLET,
 	};
 
 	enum class MovementDirection

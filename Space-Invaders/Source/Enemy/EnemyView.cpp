@@ -6,6 +6,7 @@
 
 namespace Enemy
 {
+
 	using namespace Global;
 	using namespace Graphic;
 
@@ -39,11 +40,33 @@ namespace Enemy
 				scaleEnemySprite();
 			}
 			break;
+
+		case::Enemy::EnemyType::UFO:
+			if (enemy_texture.loadFromFile(ufo_texture_path))
+			{
+				enemy_sprite.setTexture(enemy_texture);
+				scaleEnemySprite();
+			}
+			break;
+
+		case::Enemy::EnemyType::THUNDER_SNAKE:
+			if (enemy_texture.loadFromFile(thundersnake_texture_path))
+			{
+				enemy_sprite.setTexture(enemy_texture);
+				scaleEnemySprite();
+			}
+			break;
+
+
+
+
+
 		}
 
 	}
 
-	void EnemyView::scaleEnemySprite()
+
+    void EnemyView::scaleEnemySprite()
 	{
 		enemy_sprite.setScale(
 			static_cast<float>(enemy_sprite_width) / enemy_sprite.getTexture()->getSize().x,
@@ -60,4 +83,5 @@ namespace Enemy
 	{
 		game_window->draw(enemy_sprite);
 	}
+
 }

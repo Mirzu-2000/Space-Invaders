@@ -12,7 +12,8 @@ namespace Enemy
         // new view data for our enemies
         const sf::String subzero_texture_path = "assets/textures/subzero.png";
         const sf::String zapper_texture_path = "assets/textures/zapper.png";
-        //const sf::String thunder_snake_texture_path = "assets/textures/thunder_snake.png";
+        const sf::String ufo_texture_path = "assets/textures/ufo.png";
+        const sf::String thundersnake_texture_path = "assets/textures/thunder_snake.png";
 
         const float enemy_sprite_width = 60.f;
         const float enemy_sprite_height = 60.f;

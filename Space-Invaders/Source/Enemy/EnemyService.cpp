@@ -6,7 +6,8 @@
 
 #include "../../Header/Enemy/Controllers/ZapperController.h"
 #include "../../Header/Enemy/Controllers/SubZeroController.h"
-
+#include "../../Header/Enemy/Controllers/UFOController.h"
+#include "../../Header/Enemy/Controllers/ThunderSnakeController.h"
 
 
 namespace Enemy
@@ -70,9 +71,6 @@ namespace Enemy
 	}
 
 
-
-	
-
 	EnemyController* EnemyService::createEnemy(EnemyType enemy_type)
 	{
 		switch (enemy_type)
@@ -80,14 +78,14 @@ namespace Enemy
 		case::Enemy::EnemyType::ZAPPER:
 			return new ZapperController(Enemy::EnemyType::ZAPPER);
 
-		/*	case::Enemy::EnemyType::THUNDER_SNAKE:
-				return new ThunderSnakeController(Enemy::EnemyType::THUNDER_SNAKE);*/
+			case::Enemy::EnemyType::THUNDER_SNAKE:
+				return new ThunderSnakeController(Enemy::EnemyType::THUNDER_SNAKE);
 
 		case::Enemy::EnemyType::SUBZERO:
 			return new SubzeroController(Enemy::EnemyType::SUBZERO);
 
-			/*case::Enemy::EnemyType::UFO:
-				return new UFOController(Enemy::EnemyType::UFO);*/
+			case::Enemy::EnemyType::UFO:
+				return new UFOController(Enemy::EnemyType::UFO);
 		}
 	}
 
@@ -106,7 +104,7 @@ namespace Enemy
 
 	EnemyType EnemyService::getRandomEnemyType()
 	{
-		int randomType = std::rand() %2; //will change later from 3 to 4, cuz we have 4 types of enemies
+		int randomType = std::rand() %4; //will change later from 3 to 4, cuz we have 4 types of enemies
 
 		return static_cast<EnemyType>(randomType);  //cast int to EnemyType enum class
 	}
