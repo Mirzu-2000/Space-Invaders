@@ -1,5 +1,6 @@
 #include "../../Header/Enemy/EnemyView.h"
 #include "../../Header/Global/ServiceLocator.h"
+#include "../../Header/Global/Config.h"
 #include "../../Header/Graphic/GraphicService.h"
 #include "../../Header/Enemy/EnemyController.h"
 #include"../../Header/Enemy/EnemyConfig.h"
@@ -9,7 +10,7 @@ namespace Enemy
 
 	using namespace Global;
 	using namespace Graphic;
-
+	
 
 	EnemyView::EnemyView() { }
 
