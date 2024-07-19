@@ -1,37 +1,35 @@
 #pragma once
+
 #include <SFML/Graphics.hpp>
+#include "../../header/UI/UIElement/ImageView.h"
 
 namespace Enemy
 {
-    class EnemyController;
-    enum class EnemyType;
+	class EnemyController;
+	enum class EnemyType;
 
-    class EnemyView
-    {
-    private:
-        // new view data for our enemies
-        const sf::String subzero_texture_path = "assets/textures/subzero.png";
-        const sf::String zapper_texture_path = "assets/textures/zapper.png";
-        //const sf::String thunder_snake_texture_path = "assets/textures/thunder_snake.png";
+	class EnemyView
+	{
+	private:
+		const float enemy_sprite_width = 60.f;
+		const float enemy_sprite_height = 60.f;
 
-        const float enemy_sprite_width = 60.f;
-        const float enemy_sprite_height = 60.f;
+		EnemyController* enemy_controller;
+		UI::UIElement::ImageView* enemy_image;
 
-        EnemyController* enemy_controller;
+		void createUIElements();
+		void initializeImage();
+		sf::String getEnemyTexturePath();
+		void destroy();
 
-        sf::RenderWindow* game_window;
-        sf::Texture enemy_texture;
-        sf::Sprite enemy_sprite;
+	public:
+		EnemyView();
+		~EnemyView();
 
-        void initializeEnemySprite(EnemyType type);
-        void scaleEnemySprite();
+		void initialize(EnemyController* controller);
+		void update();
+		void render();
 
-    public:
-        EnemyView();
-        ~EnemyView();
+	};
 
-        void initialize(EnemyController* controller);
-        void update();
-        void render();
-    };
 }
