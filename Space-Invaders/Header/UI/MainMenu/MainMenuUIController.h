@@ -1,57 +1,52 @@
 #pragma once
+
 #include <SFML/Graphics.hpp>
+#include "../../Header/UI/Interface/IUIController.h"
+#include "../../Header/UI/UIElement/ImageView.h"
+#include "../../Header/UI/UIElement/ButtonView.h"
 
 namespace UI
 {
 	namespace MainMenu
 	{
-		class MainMenuUIController
+		class MainMenuUIController : public Interface::IUIController
 		{
 		private:
-			const sf::String background_texture_path = "assets/textures/space_invaders_bg.png";
-			const sf::String play_button_texture_path = "assets/textures/play_button.png";
-			const sf::String instructions_button_texture_path = "assets/textures/instructions_button.png";
-			const sf::String quit_button_texture_path = "assets/textures/quit_button.png";
+			const float button_height = 140.0f;
+			const float button_width = 400.0f;
 
-			// Constants:
-			const float button_width = 400.f;
-			const float button_height = 140.f;
+			const float play_button_y_position = 500.f;
+			const float instructions_button_y_position = 700.f;
+			const float quit_button_y_position = 900.f;
 
-			sf::RenderWindow* game_window;
+			const float background_image_alpha = 90.0f;
 
-			// Textures:
-			sf::Texture background_texture;
-			sf::Sprite background_sprite;
+			UIElement::ImageView* background_image;
+			UIElement::ButtonView* play_button;
+			UIElement::ButtonView* instructions_button;
+			UIElement::ButtonView* quit_button;
 
-			sf::Texture play_button_texture;
-			sf::Sprite play_button_sprite;
-
-			sf::Texture instructions_button_texture;
-			sf::Sprite instructions_button_sprite;
-
-			sf::Texture quit_button_texture;
-			sf::Sprite quit_button_sprite;
-
-			// Since this is a single image, we can check if it loaded or not during initialization
+			void createImage();
+			void createButtons();
 			void initializeBackgroundImage();
-			void scaleBackgroundImage();
-
-			// however, we have 3 buttons so it's better to create a seperate function to check if they are loaded
 			void initializeButtons();
-			bool loadButtonTexturesFromFile();
-			void setButtonSprites();
+			void registerButtonCallback();
 
-			void scaleAllButttons();
-			void scaleButton(sf::Sprite* button_to_scale);
-			void positionButtons();
-			void processButtonInteractions();
-			bool clickedButton(sf::Sprite*, sf::Vector2f);
+			void playButtonCallback();
+			void instructionsButtonCallback();
+			void quitButtonCallback();
+
+			void destroy();
+
 		public:
 			MainMenuUIController();
+			~MainMenuUIController();
 
-			void initialize();
-			void update();
-			void render();
+			void initialize() override;
+			void update() override;
+			void render() override;
+			void show() override;
+
 		};
 	}
 }

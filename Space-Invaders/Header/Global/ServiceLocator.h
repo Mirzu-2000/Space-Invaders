@@ -9,6 +9,7 @@
 #include "../../Header/Elements/ElementService.h"
 #include "../../Header/Sound/SoundService.h"
 #include "../../Header/Bullet/BulletService.h"
+#include "../../Header/Powerup/PowerupService.h"
 
 
 
@@ -42,6 +43,8 @@ namespace Global {
         Sound::SoundService* sound_service;
         //
         Bullet::BulletService* bullet_service;
+        //
+        Powerup::PowerupService* powerup_service;
 
         // Private Constructor and Destructor:
 
@@ -74,5 +77,6 @@ namespace Global {
         Element::ElementService* getElemrntService();  // Retrieve the ElementService instance.
         Sound::SoundService* getSoundService(); //  Retrieve the SoundService instance.
         Bullet::BulletService* getBulletService();
+        Powerup::PowerupService* getPowerupService();
     };
 }

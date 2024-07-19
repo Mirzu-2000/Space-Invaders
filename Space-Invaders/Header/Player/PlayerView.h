@@ -1,40 +1,33 @@
 #pragma once
+
 #include <SFML/Graphics.hpp>
-//#include "../../Header/Player/PlayerController.h"
+#include "../../header/UI/UIElement/ImageView.h"
 
-namespace Player {
+namespace Player
+{
+	class PlayerController;
 
-    class PlayerController;
-    class PlayerModel;
+	class PlayerView
+	{
+	private:
+		const float player_sprite_width = 60.f;
+		const float player_sprite_height = 60.f;
 
-    class PlayerView
-    {
-    private:
+		PlayerController* player_controller;
 
-        const sf::String player_texture_path = "assets/textures/player_ship.png";
-        const float player_sprite_width = 60.f;
-        const float player_sprite_height = 60.f;
+		UI::UIElement::ImageView* player_image;
 
-        sf::RenderWindow* game_window;
+		void createUIElements();
+		void initializeImage();
+		sf::String getPlayerTexturePath();
+		void destroy();
 
-        PlayerController* player_controller; // ptr to player controller
+	public:
+		PlayerView();
+		~PlayerView();
 
-        sf::Texture player_texture;
-        sf::Sprite player_sprite;
-
-        void initializePlayerSprite();
-        void scalePlayerSprite();
-
-    public:
-        PlayerView();
-        ~PlayerView();
-
-        void initialize(PlayerController* controller); // we pass a pointer of type controller because we need to use this in the view later.
-        // void initialize();
-        void update();
-        void render();
-
-
-    };
-
+		void initialize(PlayerController* controller);
+		void update();
+		void render();
+	};
 }

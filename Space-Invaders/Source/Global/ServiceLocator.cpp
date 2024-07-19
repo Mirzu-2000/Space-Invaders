@@ -15,6 +15,7 @@ namespace Global
 	using namespace Element;
 	using namespace Sound;
 	using namespace Bullet;
+	using namespace Powerup;
 
 
 	// Constructor: Initializes the graphic_service pointer to null and creates services.
@@ -29,6 +30,7 @@ namespace Global
 		element_service = nullptr; // Initialize element_service to null
 		sound_service = nullptr; // Initialize sound_service to null
 		bullet_service = nullptr;
+		powerup_service = nullptr;
 
 		createServices(); // Call createServices to instantiate services
 
@@ -51,6 +53,8 @@ namespace Global
 		element_service = new ElementService(); // Dynamically create a ElementService instance
 		sound_service = new SoundService(); //  Dynamically create a SoundService instance
 		bullet_service = new BulletService(); //
+		powerup_service = new PowerupService();
+
 	}
 
 	// Deletes allocated services to prevent memory leaks, specifically the graphic service.
@@ -65,6 +69,7 @@ namespace Global
 		delete(element_service); //Delete the element_service instance
 		delete(sound_service); // Delete the sound_service instance
 		delete(bullet_service);
+		delete(powerup_service);
 	}
 
 	// Returns a pointer to ServiceLocator.
@@ -85,6 +90,7 @@ namespace Global
 		element_service->initialize();  // Initialize element_service.
 		sound_service->initialize(); //  Initialize sound_service.
 		bullet_service->initialize();
+		powerup_service->initialize();
 	}
 
 	// Updates the state of the graphic service.
@@ -102,6 +108,8 @@ namespace Global
 			gameplay_service->update();
 			element_service->update();
 			bullet_service->update();
+			powerup_service->update();
+			element_service->update();
 			
 		}
 
@@ -119,6 +127,8 @@ namespace Global
 			enemy_service->render();
 			element_service->render();
 			bullet_service->render();
+			powerup_service->render();
+			element_service->render();
 			
 			
 		}
@@ -140,4 +150,6 @@ namespace Global
 	ElementService* ServiceLocator::getElemrntService() { return element_service; }
 	SoundService* ServiceLocator::getSoundService() { return sound_service; }
 	BulletService* ServiceLocator::getBulletService() { return bullet_service; }
+	PowerupService* ServiceLocator::getPowerupService(){ return powerup_service; }
+
 }
