@@ -1,34 +1,36 @@
 #pragma once
 
+#include "UI/UIElement/ImageView.h"
+
 #include <SFML/Graphics.hpp>
-#include "../../header/UI/UIElement/ImageView.h"
 
-namespace Bullet
+namespace Element
 {
-	enum class BulletType;
-	class BulletController;
-
-	class BulletView
+	namespace Bunker
 	{
-	private:
-		const float bullet_sprite_height = 18.0f;
-		const float bullet_sprite_width = 18.0f;
+		class BunkerController;
 
-		BulletController* bullet_controller;
-		UI::UIElement::ImageView* bullet_image;
+		class BunkerView
+		{
+		private:
+			const float bunker_sprite_height = 80.0f;
+			const float bunker_sprite_width = 80.0f;
 
-		void createUIElements();
-		void initializeImage();
-		sf::String getBulletTexturePath();
-		void destroy();
+			UI::UIElement::ImageView* bunker_image;
+			BunkerController* bunker_controller;
 
-	public:
-		BulletView();
-		~BulletView();
+			void createUIElements();
+			void initializeImage();
 
-		void initialize(BulletController* controller);
-		void update();
-		void render();
-	};
+			void destroy();
 
+		public:
+			BunkerView();
+			~BunkerView();
+
+			void initialize(BunkerController* controller);
+			void update();
+			void render();
+		};
+	}
 }
